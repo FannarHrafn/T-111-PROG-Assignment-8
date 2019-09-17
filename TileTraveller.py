@@ -5,7 +5,7 @@
 
 #grid:
 grid = [
-    [ ["(S)outh or (E)ast","x"], ["(E)ast or (W)est","x"], ["(S)outh or (W)est","x"] ],
+    [ ["(E)ast or (S)outh","x"], ["(E)ast or (W)est","x"], ["(S)outh or (W)est","x"] ],
     [ ["(N)orth or (E)ast or (S)outh","x"], ["(S)outh or (W)est","x"], ["(N)orth or (S)outh","x"]],
     [ ["(N)orth","o"], ["(N)orth","x"], ["(N)orth","x"]]
 ]
@@ -20,9 +20,8 @@ def travel_printer(travel_string):
 def get_direction(travel_string):
     while True:
         direction = input("Direction: ")
-        direction.upper()
-        if direction in travel_string:
-            return direction
+        if direction.upper() in travel_string:
+            return direction.upper()
         else:
             print("Not a valid direction!")
 
@@ -49,7 +48,6 @@ while True:
     travel_printer(travel_string)
     direction = get_direction(travel_string)
     curr_pos, grid = new_pos(curr_pos,direction,grid)
-    print(grid[curr_pos[0]][curr_pos[1]])
     if grid[curr_pos[0]][curr_pos[1]] == grid[2][2]:
-        print("Victory")
+        print("Victory!")
         break
